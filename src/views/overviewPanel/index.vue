@@ -1,5 +1,7 @@
 <template>
   <div class="overview-panel">
+    <h1> Code Logs </h1>
+
     <code-log :code-log="codeLog" class="code-log"/>
     <current-code-presenter :code="currentCode" class="current-code-presenter"/>
   </div>
@@ -29,8 +31,12 @@ export default {
 <style lang="scss">
 .overview-panel {
 
-    grid-column-start: 2;
-    grid-row-start: 1;
+  grid-column-start: 2;
+  grid-row-start: 1;
+
+  h1 {
+    color: #858585
+  }
 
   .code-log {
     background: #e3e3e3;

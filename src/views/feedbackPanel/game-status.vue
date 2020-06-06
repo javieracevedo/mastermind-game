@@ -1,6 +1,8 @@
 <template>
   <div class="game-status">
-
+    <h3> 
+      {{ gameStatusLabel }}
+    </h3>
   </div>
 </template>
 
@@ -8,16 +10,15 @@
 export default {
   name: "GameStatus",
   props: {
-    status: {
+    gameWon: {
       type: Boolean,
       required: true
+    }
+  },
+  computed: {
+    gameStatusLabel() {
+      return this.gameWon ? "You Won!! :)" : "Guess the Combination."
     }
   }
 }
 </script>
-
-<style lang="scss">
-.game-status{
-
-}
-</style>

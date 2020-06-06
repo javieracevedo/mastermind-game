@@ -1,5 +1,6 @@
 <template>
   <div class="control-panel">
+    <h1> Controllers </h1>
     <div class="controllers-container">
       <playable-pegs :pegs="playablePegColors" @peg-play="onPegPlay"/>
 
@@ -76,6 +77,10 @@ export default {
   grid-column-start: 1;
   grid-row-start: 1;
 
+  h1 {
+    color: #858585
+  }
+  
   .controllers-container {
     display: flex;
     flex-direction: column;

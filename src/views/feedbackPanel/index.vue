@@ -1,13 +1,19 @@
 <template>
   <div class="feedback-panel">
-    <code-presenter :code="hintPegs" class="code-presenter"/> 
+    <h1> Feedback </h1>
+    <div class="feedback-container">
+      <code-presenter :code="hintPegs" class="code-presenter"/> 
+      <game-status :game-won="hasWon" />
+    </div>
   </div>
 </template>
 
 <script>
 
 import codePresenter from "@c/shared/codePresenter/"
-import { mapState } from 'vuex'
+import gameStatus from "./game-status";
+import { mapState } from 'vuex';
+
 export default {
   name: "FeedbackPanel",
   computed: {
@@ -17,7 +23,8 @@ export default {
     })
   },
   components: {
-    codePresenter
+    codePresenter,
+    gameStatus
   }
 }
 </script>
@@ -26,11 +33,20 @@ export default {
 .feedback-panel {
   grid-column-start: 3;
   grid-row-start: 1;
-  margin-left: 20px;
+  margin-left: 50px;
+  
+  h1 {
+    color: #858585
+  }
 
-  .code-presenter {
-    background: gray;
-    border-radius: 10px;
+  .feedback-container {
+    display: flex;
+    flex-direction: column;
+    
+    .code-presenter {
+      background: gray;
+      border-radius: 10px;
+    }
   }
 }
 </style>

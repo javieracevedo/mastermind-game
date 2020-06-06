@@ -26,7 +26,7 @@ export default {
 <style lang="scss">
 .container {
   display: grid;
-  grid-template-columns: 376px 226px 232px;
+  grid-template-columns: 376px 226px 275px;
   grid-auto-rows: auto;
   justify-content: center;
 }
