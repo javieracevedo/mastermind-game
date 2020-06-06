@@ -1,28 +1,34 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <section class="container">
+    <control-panel />
+    <overview-panel />
+    <feedback-panel />
+  </section>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+
+import controlPanel from "@v/controlPanel/";
+import overviewPanel from "@v/overviewPanel/";
+import feedbackPanel from "@v/feedbackPanel/"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    controlPanel,
+    overviewPanel,
+    feedbackPanel
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+.container {
+  display: grid;
+  grid-template-columns: 376px 226px 232px;
+  grid-auto-rows: auto;
+  justify-content: center;
 }
+
 </style>
