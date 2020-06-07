@@ -1,4 +1,4 @@
-import masterMind from "../../src/core/utils/mastermind";
+import masterMind from "../../src/core/mastermind";
 
 describe("Test mastermind game methods", () => {
 

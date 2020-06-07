@@ -16,7 +16,7 @@
 import playablePegs from "./playablePegs/"
 import checkWin from "./checkWin";
 import deletePegButton from "./deletePegButton";
-import masterMind from "@utils/mastermind";
+import masterMind from "@/core/mastermind";
 import { mapState } from "vuex";
 
 export default {
@@ -40,7 +40,7 @@ export default {
     }
   },
   created() {
-    this.machineCode = masterMind.generateCode();
+    this.setMachineCode()
   },
   computed: {
     ...mapState({
@@ -62,17 +62,25 @@ export default {
       const userCode = this.currentCode.map(play => play.name);
       const hints = masterMind.getHints(userCode, this.machineCode)
       const hasWon = masterMind.checkWin(hints);
+
+      if (hasWon) {
+        this.setMachineCode()
+        this.$store.dispatch("clearCodeLog");
+      }
       
       this.$store.dispatch("logCode", this.currentCode);
       this.$store.dispatch("setHints", hints);
       this.$store.commit("SET_HAS_WON", hasWon);
-      this.$store.dispatch("clearCurrentCode")
+      this.$store.dispatch("clearCurrentCode");
     },
     onPegPlay(peg) {
       this.$store.dispatch("makePlay", peg)
     },
     onDeletePegClicked() {
       this.$store.dispatch("deleteLastPlay");
+    },
+    setMachineCode() {
+      this.machineCode = masterMind.generateCode();
     }
   }
 }

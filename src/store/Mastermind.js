@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { codeLimit } from "../core/utils/mastermind";
+import { codeLimit } from "../core/mastermind";
 Vue.use(Vuex);
 
 const state = {
@@ -59,6 +59,9 @@ const actions = {
   },
   clearCurrentCode({ commit }) {
     commit("SET_CURRENT_CODE", []);
+  },
+  clearCodeLog({ commit }) {
+    commit("SET_CODE_LOG", [])
   },
   setHints({ commit }, hints) {
     const pegHints = hints.map((hint) => {
