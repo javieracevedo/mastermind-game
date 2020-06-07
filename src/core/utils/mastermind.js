@@ -1,3 +1,5 @@
+const codeLimit = 4
+
 const colorCodes = {
   BLUE: "blue",
   GREEN: "green",
@@ -12,12 +14,6 @@ const resultPegs = {
   WHITE: "white",
   EMPTY: ""
 }
-
-const codeLimit = 4
-
-const code = generateCode();
-
-console.log(code);
 
 function selectRandomColorCode(colors) {
   if (!colors) {
@@ -43,7 +39,7 @@ function generateCode() {
   return code;
 }
 
-function getHints(userCode) {
+function getHints(userCode, code) {
   const hints = []; 
   userCode.forEach((color, index) => {
     if (code[index] == color) {
@@ -63,6 +59,8 @@ function checkWin(hints) {
 
 
 module.exports = {
+  selectRandomColorCode,
+  generateCode,
   getHints,
   checkWin,
   codeLimit

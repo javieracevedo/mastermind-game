@@ -3,8 +3,6 @@ import Vuex from "vuex";
 import { codeLimit } from "../core/utils/mastermind";
 Vue.use(Vuex);
 
-
-
 const state = {
   currentCode: [],
   codeLimit: codeLimit,
@@ -46,9 +44,7 @@ const actions = {
     }
 
     const clonedCode = [...state.currentCode];
-    const deletedCode = clonedCode.pop();
-    // TODO: remove
-    console.log(deletedCode);
+    clonedCode.pop();
     commit("SET_CURRENT_CODE", clonedCode);
   },
   logCode({ commit, state }, code) {
@@ -59,8 +55,6 @@ const actions = {
 
     const clonedCodeLog = [...state.codeLog];
     clonedCodeLog.push(code);
-    // TODO: remove
-    console.log(clonedCodeLog);
     commit("SET_CODE_LOG", clonedCodeLog);
   },
   clearCurrentCode({ commit }) {

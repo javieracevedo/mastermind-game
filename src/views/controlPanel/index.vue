@@ -6,7 +6,7 @@
 
       <check-win @check-win-clicked="onCheckWinClicked" :is-enabled="canCheckWinningCondition" />
       
-      <delete-peg-button @delete-peg-clicked="onDeletePegClicked"/>
+      <delete-peg-button @delete-peg-clicked="onDeletePegClicked" :is-enabled="canDeletePlay"/>
     </div>
   </div>
 </template>
@@ -35,8 +35,12 @@ export default {
         { name: 'purple', hexCode: '#F300FF' },
         { name: 'red', hexCode: '#FF0000' },
         { name: 'yellow', hexCode: '#FFF900' }
-      ]
+      ],
+      machineCode: []
     }
+  },
+  created() {
+    this.machineCode = masterMind.generateCode();
   },
   computed: {
     ...mapState({
@@ -44,6 +48,9 @@ export default {
     }),
     canCheckWinningCondition() {
       return this.currentCode.length >= this.$store.state.codeLimit;
+    },
+    canDeletePlay() {
+      return this.currentCode.length >= 1;
     }
   },
   methods: {
@@ -52,9 +59,8 @@ export default {
         return;
       }
 
-      
       const userCode = this.currentCode.map(play => play.name);
-      const hints = masterMind.getHints(userCode)
+      const hints = masterMind.getHints(userCode, this.machineCode)
       const hasWon = masterMind.checkWin(hints);
       
       this.$store.dispatch("logCode", this.currentCode);

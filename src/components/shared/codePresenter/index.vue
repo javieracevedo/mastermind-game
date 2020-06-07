@@ -1,6 +1,6 @@
 <template>
   <div class="code-presentation">
-    <div v-for="peg in code" :key="peg.name" class="peg-container">
+    <div v-for="(peg, index) in code" :key="index" class="peg-container">
       <dummy-peg :color="peg.hexCode"/>
     </div>
   </div>

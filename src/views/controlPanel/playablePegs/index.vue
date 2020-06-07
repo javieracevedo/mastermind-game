@@ -1,6 +1,6 @@
 <template>
   <div class="playable-pegs">
-    <div v-for="peg in pegs" :key="peg.name" class="peg-container">
+    <div v-for="(peg, index) in pegs" :key="index" class="peg-container">
       <interactive-peg :peg="peg" @peg-clicked="onPegClicked"/>
     </div>
   </div>
