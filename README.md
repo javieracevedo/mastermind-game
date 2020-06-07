@@ -1,6 +1,6 @@
 # Mastermind Game (vuejs)
 
-This is my implementation of the mastermind game in vuejs. The game is based around the module in **src/core/mastermind.js** almost all important logic is in there, expect the state management of the game, I'm hadling that with vuex. The UI it's pretty simple, it only has enough interfaces to make the game playable.
+This is my implementation of the mastermind game in vuejs. The game is based around the module in **src/core/mastermind.js** almost all important logic is in there, expect the state management of the game which is being handled by vuex. The UI it's pretty simple, it only has enough interfaces to make the game playable.
 
 ## Project Structure
 
