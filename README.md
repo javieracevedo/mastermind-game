@@ -28,6 +28,8 @@ This is the structure that I chose:
 
 ## Project setup
 
+Vuejs version `2.6.11` and @vue/cli version `4.4.1`
+
 ```
 npm install
 ```
