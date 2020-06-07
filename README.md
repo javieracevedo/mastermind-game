@@ -47,4 +47,4 @@ npm run test:unit
 ```
 
 
-This should be enough to setup the project and run it and see it working.
+This should be enough to setup the project, run it and see it working.
