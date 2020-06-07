@@ -1,6 +1,6 @@
 # mastermind-vue
 
-This is my implementation of the mastermind game in vuejs. The game is based around the module in src/core/mastermind.js almost all important login is in there, expect the state management of the game, I'm hadling that with vuex. The UI it's actually simple, but I think it's enough to make the game playable for this interview test (can't take forever to actually hand it in).
+This is my implementation of the mastermind game in vuejs. The game is based around the module in **src/core/mastermind.js** almost all important logic is in there, expect the state management of the game, I'm hadling that with vuex. The UI it's actually simple, but I think it's enough to make the game playable for this interview test (can't take forever to actually hand it in).
 
 ## Project Structure
 
