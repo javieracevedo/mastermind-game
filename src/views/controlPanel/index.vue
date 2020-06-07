@@ -62,16 +62,16 @@ export default {
       const userCode = this.currentCode.map(play => play.name);
       const hints = masterMind.getHints(userCode, this.machineCode)
       const hasWon = masterMind.checkWin(hints);
-
-      if (hasWon) {
-        this.setMachineCode()
-        this.$store.dispatch("clearCodeLog");
-      }
       
       this.$store.dispatch("logCode", this.currentCode);
       this.$store.dispatch("setHints", hints);
       this.$store.commit("SET_HAS_WON", hasWon);
       this.$store.dispatch("clearCurrentCode");
+
+      if (hasWon) {
+        this.setMachineCode()
+        this.$store.dispatch("clearCodeLog");
+      }
     },
     onPegPlay(peg) {
       this.$store.dispatch("makePlay", peg)
